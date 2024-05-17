@@ -1,13 +1,13 @@
-import Aside from "./components/Aside"
-import Footer from "./components/Footer"
+import { Landing } from "./pages/Landing"
+import { GetCards } from "./pages/GetCards"
+import { GetAccount } from "./pages/GetAccount"
 
 function App() {
   return (
     <>
-      <main>
-        <Aside/>
-        <Footer/>
-      </main>
+      {/* <Landing/> */}
+      {/* <GetCards/> */}
+      {/* <GetAccount/> */}
     </>
   )
 }
