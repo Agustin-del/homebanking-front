@@ -8,7 +8,7 @@ function Navigator () {
             <Anchor text='Accounts' />          
             <Anchor text='Cards'/>
             <Anchor text='Transaction'/>
-            <Anchor text='Loan'/>
+            <Anchor text='Loans'/>
             <Anchor text='Logout'/>
           </nav>
         </>

@@ -7,7 +7,7 @@ export default function MainLayout({children}) {
     <>
       <div className="flex">
         <Header/> 
-        <main className ="flex flex-col justify-center w-[70%]">
+        <main className ="flex flex-col w-[70%] bg-blue-200 p-4 items-center justify-evenly">
           {children}
         </main>
       </div>
