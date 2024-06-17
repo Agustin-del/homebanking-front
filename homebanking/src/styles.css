@@ -1,0 +1,30 @@
+.table-custom {
+    font-size: 0.75rem; /* Ajusta el tamaño de la letra */
+  }
+  
+  .table-custom th, .table-custom td {
+    padding: 0.5rem; /* Ajusta el padding */
+  }
+  
+  .table-custom th {
+    background-color: #bfdbfe; /* Color de fondo de los encabezados */
+  }
+  
+  .table-custom tr.bg-debit {
+    background-color: #fca5a5; /* Color de fondo para transacciones de débito */
+  }
+  
+  .table-custom tr.bg-credit {
+    background-color: #dbeafe; /* Color de fondo para transacciones de crédito */
+  }
+  
+  .table-custom {
+    width: 100%; /* Ajustar ancho para mobile */
+  }
+  
+  @media (min-width: 1024px) {
+    .table-custom {
+      font-size: 1rem; /* Tamaño de letra para escritorio */
+    }
+  }
+  

@@ -4,32 +4,40 @@ import { Button } from 'flowbite-react'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-
+import { useSelector } from 'react-redux'
 
 export const GetLoans = () => {
-    const [data, setData] = useState([])
-    // const [loading, setLoading] = useState(false)
-
-    useEffect(() => {
-        getData()
-    }, [])
+  const [loans, setLoans] = useState([])
+  const token = useSelector(store => store.authReducer.token)
   
-    const getData = async () => {
-    //   setLoading(true)
-      let response = await axios.get('http://localhost:8080/api/clients/1')
-      setData(response.data.loans)
+  const getLoans = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/auth/current', {
+        headers: {
+          Authorization:`Bearer ${token}`
+        }
+      })
+      setLoans(response.data.loans)
+    } catch(error) {
+      console.error("Error getting loans: ", error)
     }
+  }
   
-    
-    return (
-    <>
-      <h1 className="text-4xl font-bold">Your loans</h1>
-      <div className="flex gap-4 justify-center">
-        {data.map((loan) => {
-          return <GetLoansCard key={loan.id} name={loan.name} amount={loan.amount} payments={loan.payments} />
-        })}
+  useEffect(() => {
+      getLoans()
+  }, [])
+  
+  return (
+  <>
+    <h1 className="text-2xl lg:text-4xl font-bold">Your loans</h1>
+     <div className="flex flex-col items-center lg:flex-row gap-4 w-full justify-evenly">
+      {(loans.length > 0) ? loans.map((loan) => {
+        return <GetLoansCard key={loan.id} name={loan.name} amount={loan.amount} payments={loan.payments} />
+        }) :
+        <p className='text-base text-center text-gray-700'>No loans available</p>
+      }
       </div>
-      <Link to="applyLoan" className="w-[250px]">
+      <Link to="applyLoan" className="w-[150px] lg:w-[250px]">
         <Button className="w-full">Request new loan</Button>
       </Link>
       <Carrousel/>

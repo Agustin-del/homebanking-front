@@ -7,7 +7,7 @@ function Navigator () {
           <nav className="flex flex-col items-center gap-10 p-4">
             <Anchor text='Accounts' />          
             <Anchor text='Cards'/>
-            <Anchor text='Transaction'/>
+            <Anchor text='Transactions'/>
             <Anchor text='Loans'/>
             <Anchor text='Logout'/>
           </nav>

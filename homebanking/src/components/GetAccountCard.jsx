@@ -1,26 +1,26 @@
 import { Button, Card } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export function GetAccountCard({number, balance, accountId}) {
-  
+
   return (
-    <Card className="max-w-sm bg-blue-100">
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+    <Card className="max-w-sm bg-blue-100 w-[360px] h-[160px]">
+      <h5 className="text-sm lg:text-xl font-bold text-gray-900 ">
       Account Number: {number}
       </h5>
       <div className="flex items-center gap-4">
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        <p className=" text-xs lg:text-base lg:font-normal text-gray-700 ">
           Amount:
         </p>  
-        <p  className="font-normal text-4xl text-gray-700 dark:text-gray-400">
-          {`$${balance}`}
+        <p className="font-normal text-2xl lg:text-4xl text-gray-700">
+          {`$${balance.toFixed(2).toLocaleString()}`}
         </p>
         </div>
         <div className="flex justify-center">
-          <Link>
+          <NavLink to={`/getAccount/${accountId}`}>
             <Button>
               <div className ="flex items-center">
-              Check Account
+              <p className="text-xs lg:text-base">Check Account</p>
               <svg className="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fillRule="evenodd"
@@ -30,7 +30,7 @@ export function GetAccountCard({number, balance, accountId}) {
               </svg>
               </div>
             </Button>
-          </Link>
+          </NavLink>
         </div>
     </Card>
   );
