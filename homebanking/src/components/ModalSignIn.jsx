@@ -13,15 +13,15 @@ export function ModalSignIn({ isOpen, onClose }) {
   const [passwordAlert, setPasswordAlert] = useState('')
   const firstNameRef = useRef(null)
 
-  useEffect (() => {
-    if (isOpen) {
-      setTimeout(() => {
-        if(firstNameRef) {
-          firstNameRef.current.focus()
-        }
-      }, 100)
-    }
-  })
+  // useEffect (() => {
+  //   if (isOpen) {
+  //     setTimeout(() => {
+  //       if(firstNameRef) {
+  //         firstNameRef.current.focus()
+  //       }
+  //     }, 100)
+  //   }
+  // })
   useEffect(() => {
     
     const validatePassword = (password) => {
