@@ -7,6 +7,8 @@ import { HiInformationCircle } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
+
+//ordenar payments
 export const PostLoan = () => {
   const [loanType, setLoanType] = useState('')
   const[account, setAccount] = useState('')
@@ -187,7 +189,7 @@ export const PostLoan = () => {
                 {numbers && numbers.map(number => <option key={number} value={number}>{number}</option>)}
               </Select>
             </div>
-            <div className="flex flex-col w-full gap-2">
+            <div className="flex flex-col w-full   gap-2">
               <Label htmlFor='amount' value='Amount:' color={color}/>
               <div className="relative">
                 <MdAttachMoney className="absolute top-[1px] left-2 h-10 w-8"/> 

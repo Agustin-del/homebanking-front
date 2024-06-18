@@ -30,7 +30,6 @@ export const GetCards = () => {
       
       setDebitCards(debitCardsData);
       setCreditCards(creditCardsData);
-      console.log(creditCardsData)
     } catch (error) {
       console.error('Error getting cards: ', error);
     }

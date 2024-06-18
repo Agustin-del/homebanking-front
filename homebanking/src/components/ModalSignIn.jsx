@@ -13,17 +13,16 @@ export function ModalSignIn({ isOpen, onClose }) {
   const [passwordAlert, setPasswordAlert] = useState('')
   const firstNameRef = useRef(null)
 
-  // me tira el campo de vuelta, me hace un caracter en contraseña
-
-   useEffect (() => {
-     if (isOpen) {
-       setTimeout(() => {
+  useEffect (() => {
+    if (isOpen) {
+      setTimeout(() => {
         if(firstNameRef) {
           firstNameRef.current.focus()
         }
       }, 100)
     }
   }, [])
+
   useEffect(() => {
     
     const validatePassword = (password) => {
