@@ -7,7 +7,6 @@ import { useMediaQuery } from 'react-responsive'
 
 export const GetAccount = () => {
   const {accountId} = useParams ()
-  const isDesktop = useMediaQuery({minWidth:1024})
 
   return (
       <div className="flex flex-col justify-between lg:justify-evenly p-4 flex-1 items-center gap-4">

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'flowbite-react';
 import { CardsLanding } from '../components/CardsLanding';
 import Footer from '../components/Footer';
 
@@ -29,6 +28,7 @@ export const IndexAuthenticated = ({handleLogOut}) => {
           <CardsLanding title ="Why choose us?" features ={features}/>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }

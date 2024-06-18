@@ -1,4 +1,3 @@
-import { Card } from 'flowbite-react'
 import React from 'react'
 
 export const CardsLanding = ({title, features}) => {

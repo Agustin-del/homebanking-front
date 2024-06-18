@@ -61,7 +61,7 @@ export function ModalSignIn({ isOpen, onClose }) {
         email:email,
         password:password
       }
-      const response = await axios.post('http://localhost:8080/api/auth/signup', requestBody)
+      const response = await axios.post('https://homebanking-e3f1.onrender.com/api/auth/signup', requestBody)
       if (response.status === 201) {
         setAlert({type:"success", message:"Your account has been created, now login"})
         setTimeout(() => {

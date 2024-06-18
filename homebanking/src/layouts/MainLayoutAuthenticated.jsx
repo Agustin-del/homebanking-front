@@ -7,7 +7,7 @@ export default function MainLayoutAuthenticated({handleLogOut, children}) {
     <>
       <div className="flex">
         <Header/> 
-        <main className =" min-h-[120vh] shadow-lg flex flex-col w-[80%] lg:w-[70%] bg-gray-100 p-4 items-center justify-evenly">
+        <main className ="min-h-[80vh] shadow-lg flex flex-col w-[80%] lg:w-[70%] bg-gray-100 p-4 items-center justify-evenly">
           {children}
         </main>
       </div>

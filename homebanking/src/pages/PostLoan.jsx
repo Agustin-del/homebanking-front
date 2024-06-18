@@ -26,7 +26,7 @@ export const PostLoan = () => {
 
   async function getLoans() {
     try {
-      const response = await axios.get("http://localhost:8080/api/loans/", {
+      const response = await axios.get("https://homebanking-e3f1.onrender.com/api/loans/", {
         headers: {
           Authorization:`Bearer ${token}`
         }
@@ -40,7 +40,7 @@ export const PostLoan = () => {
 
   async function getNumberAccounts() {
       try {
-          const response = await axios.get(`http://localhost:8080/api/clients/current/accounts/`, {
+          const response = await axios.get(`https://homebanking-e3f1.onrender.com/api/clients/current/accounts/`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -143,7 +143,7 @@ export const PostLoan = () => {
       installments: parseInt(paymentChoice)
     }
     try {
-      const response = await axios.post('http://localhost:8080/api/loans/', requestBody, {
+      const response = await axios.post('https://homebanking-e3f1.onrender.com/api/loans/', requestBody, {
         headers: {
           Authorization: `Bearer ${token}`
         }

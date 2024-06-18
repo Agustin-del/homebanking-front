@@ -1,4 +1,4 @@
-import React, { useDebugValue, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { Cards } from '../components/Cards'
 import axios from 'axios'
 import { Button, Card } from 'flowbite-react'
@@ -19,7 +19,7 @@ export const GetCards = () => {
 
   const getCards = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/clients/current/cards/', {
+      const response = await axios.get('https://homebanking-e3f1.onrender.com/api/clients/current/cards/', {
         headers: {
           Authorization:`Bearer ${token}`
         }
@@ -64,20 +64,27 @@ export const GetCards = () => {
             </div> 
             </> :
             <div className="flex flex-col gap-4">
-              <h2 className="text-base text-center pb-2">Credit Cards</h2>
-              {debitCards.map (card => (
-                <Cards key={card.id} color={card.color} type={card.cardType} cardHolder={card.cardHolder} number={card.number} date={card.truDate} CVV={card.cvv}/>
-              ))}
               <h2 className="text-base text-center pb-2">Debit Cards</h2>
-              {creditCards.map(card => (
+              { debitCards.length === 0 ? (
+                <p className="text-base text-center text-gray-700">No debit cards available</p>
+              ) : (
+              debitCards.map (card => (
                 <Cards key={card.id} color={card.color} type={card.cardType} cardHolder={card.cardHolder} number={card.number} date={card.truDate} CVV={card.cvv}/>
-              ))}
+              ))
+            )}
+              <h2 className="text-base text-center pb-2">Credit Cards</h2>
+              { creditCards.lengt === 0 ? (
+                <p className="text-base text-center text-gray-700">No credit cards available</p>
+              ) : (
+                creditCards.map(card => (
+                  <Cards key={card.id} color={card.color} type={card.cardType} cardHolder={card.cardHolder} number={card.number} date={card.truDate} CVV={card.cvv}/>
+                ))
+              )}
             </div>
           }
       </div>
       <Link to="applycard">
-      {isDesktop ?  <Button label="2" className="items-center text-lg ">Apply for a new card</Button> : <Button className="self-center"><p className="text-xs">Apply for a new card</p></Button>}
-       
+      {isDesktop ?  <Button label="2" className="items-center text-lg ">Apply for a new card</Button> : <Button className="self-center"><p className="text-xs">Apply for a new card</p></Button>}     
       </Link>
       <Carrousel/>
       </div>

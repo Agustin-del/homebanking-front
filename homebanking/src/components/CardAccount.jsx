@@ -13,7 +13,7 @@ export function CardAccount({accountId}) {
  
   const getAccountData = async () => {
     try {
-        const response = await axios.get(`http://localhost:8080/api/clients/current/accounts/`, {
+        const response = await axios.get(`https://homebanking-e3f1.onrender.com/api/clients/current/accounts/`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

@@ -25,7 +25,7 @@ export const PostCards = () => {
 
     if ((membership !== '') && (cardType !== '')) {
       try {
-        const response = await axios.post("http://localhost:8080/api/clients/current/cards/", cardBody, {
+        const response = await axios.post("https://homebanking-e3f1.onrender.com/api/clients/current/cards/", cardBody, {
           headers: {
             Authorization: `Bearer ${token}`
           }

@@ -44,7 +44,7 @@ export const PostTransaction = () => {
       destinationAccount: destinationAccount
     }
     try {
-      const response = await axios.post('http://localhost:8080/api/transactions/', transaction, {
+      const response = await axios.post('https://homebanking-e3f1.onrender.com/api/transactions/', transaction, {
         headers : {
           Authorization: `Bearer ${token}`
         }
@@ -70,7 +70,7 @@ export const PostTransaction = () => {
 
   async function getAccounts() {
     try {
-      const response = await axios.get('http://localhost:8080/api/clients/current/accounts/', {
+      const response = await axios.get('https://homebanking-e3f1.onrender.com/api/clients/current/accounts/', {
         headers :{
           Authorization: `Bearer ${token}`
         }

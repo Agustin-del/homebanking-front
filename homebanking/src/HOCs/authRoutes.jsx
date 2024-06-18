@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Navigate, Route } from "react-router-dom";
+import {  Route } from "react-router-dom";
 import MainLayoutAuthenticated from "../layouts/MainLayoutAuthenticated";
 
 export default function authRoutes(route) {
