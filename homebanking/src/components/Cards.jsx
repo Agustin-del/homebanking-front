@@ -16,7 +16,7 @@ const isDesktop = useMediaQuery({minWidth:1024})
     }
   
     return (
-      <div className={`card relative h-[170px] w-[270px] lg:h-[260px] lg:w-[400px] flex flex-col justify-end px-6 py-10 text-white rounded-3xl gap-0 lg:gap-8 ${color}`}>
+      <div className={`card relative max-h-[170px] max-w-[270px] lg:max-h-[260px] lg:max-w-[400px] flex flex-col justify-end px-6 py-10 text-white rounded-3xl gap-0 lg:gap-8 ${color}`}>
         <div className ="flex gap-3 lg:gap-6 items-center">
           <div className="flex flex-col">
             <p className=" text-base lg:text-3xl">MASTER CARD</p>
