@@ -44,8 +44,8 @@ export const GetCards = () => {
         <Skeleton variant ="text" className="h-[10vh] w-full"/> 
         <Skeleton variant ="text" className="h-20[vh] w-full"/> 
         <div className="flex flex-col gap 2">
-          <Skeleton variant="rectangular" className ="min-h-[30vh] w-full"/> 
-          <Skeleton variant="rectangular" className ="h-[20vh] w-full"/>
+          <Skeleton variant="rectangular" className ="min-h-[40vh] w-full"/> 
+          <Skeleton variant="rectangular" className ="h-[30vh] w-full"/>
         </div>
       </Box> 
     : 

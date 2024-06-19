@@ -74,11 +74,14 @@ export const LandingAuthenticated = () => {
   }
   return (
         loading ? 
-          <Box minwidth={"100%"} minHeight={"100%"}>
-            <Skeleton variant ="text"  width={210} height={40}/> 
-            <Skeleton variant="rectangular"  width={210} height={118} /> 
-            <Skeleton variant="text" width="60%" />
-          </Box>
+          <Box minHeight={"100%"} minWidth={"100%"} >
+            <Skeleton variant ="text" className="h-[10vh] w-full"/> 
+            <Skeleton variant ="text" className="h-20[vh] w-full"/> 
+            <div className="flex flex-col gap 2">
+              <Skeleton variant="rectangular" className ="min-h-[40vh] w-full"/> 
+              <Skeleton variant="rectangular" className ="h-[30vh] w-full"/>
+            </div>
+          </Box> 
           :
           <>
             <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-4"></div>
