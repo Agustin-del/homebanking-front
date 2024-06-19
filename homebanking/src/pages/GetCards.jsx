@@ -40,8 +40,9 @@ export const GetCards = () => {
   return (
     <>
     {loading ? 
-      <Box>
-        <Skeleton variant ="text"  width={210} height={40}/> 
+      <Box >
+        <Skeleton variant ="text"  width={"80%"} height={40}/> 
+        <Skeleton variant ="text"  width={"80%"} height={40}/> 
         <Skeleton variant="rectangular"  width={210} height={118} /> 
         <Skeleton variant="rectangular" width="full" />
       </Box> 
