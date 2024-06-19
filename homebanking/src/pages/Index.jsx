@@ -23,12 +23,12 @@ export const Index = () => {
           <h1 className="text-3xl font-bold ">Andes Net Bank</h1>
         </div>
           {isDesktop ? <div className="flex gap-4 justify-end p-10">
-          <Button onClick={() => setLogInOpen(true)}>Login</Button>
-          <Button onClick={() => setRegisterOpen(true)}>Register</Button>
+          <Button className="w-[95px]" onClick={() => setLogInOpen(true)}>Login</Button>
+          <Button className="w-[95px]" onClick={() => setRegisterOpen(true)}>Register</Button>
         </div> :
         <div className=" h-[10px] flex gap-6 items-center justify-center  p-10 w-full">
-          <Button className=" h-[35px] flex items-center" onClick={() => setLogInOpen(true)}>Login</Button>
-          <Button className=" h-[35px] flex items-center" onClick={() => setRegisterOpen(true)}>Register</Button>
+          <Button className="w-[95px] h-[35px] flex items-center" onClick={() => setLogInOpen(true)}>Login</Button>
+          <Button className="w-[95px] h-[35px] flex items-center" onClick={() => setRegisterOpen(true)}>Register</Button>
         </div>
         }
       </header>
