@@ -40,7 +40,7 @@ export const GetCards = () => {
   return (
     <>
     {loading ? 
-      <Box minHeight={300} minWidth={300} >
+      <Box minHeight={"100%"} minWidth={"100%"} >
         <Skeleton variant ="text"  width={"80%"} height={40}/> 
         <Skeleton variant ="text"  width={"80%"} height={40}/> 
         <Skeleton variant="rectangular"  width={210} height={118} /> 
