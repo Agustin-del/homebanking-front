@@ -58,7 +58,7 @@ export const GetCards = () => {
             <div className="w-1/2 flex flex-col gap-4">
               <h2 className="text-2xl text-center pb-2">Debit Cards</h2>
               {debitCards.length === 0 ? (
-              <p className ="text-base text-center text-gray-700">No debit cards available</p>
+              <p className ="text-base text-center text-gray-700">You don't have debit cards available</p>
               ) : (
               debitCards.map(card => (
                 <Cards key={card.id} color={card.color} type={card.cardType} cardHolder={card.cardHolder} number={card.number} date={card.truDate} CVV={card.cvv}/>
@@ -68,7 +68,7 @@ export const GetCards = () => {
             <div className="w-1/2 flex flex-col gap-4">
               <h2 className="text-2xl text-center pb-2">Credit Cards</h2>
                 { creditCards.length === 0 ? (
-                <p className='text-base text-center text-gray-700'>No credit cards available</p>
+                <p className='text-base text-center text-gray-700'>You don't have credit cards available</p>
                 ) : (
                 creditCards.map(card => (
                 <Cards key={card.id} color={card.color} type={card.cardType} cardHolder={card.cardHolder} number={card.number} date={card.truDate} CVV={card.cvv}/>
@@ -79,7 +79,7 @@ export const GetCards = () => {
             <div className="flex flex-col gap-4">
               <h2 className="text-base text-center pb-2">Debit Cards</h2>
               { debitCards.length === 0 ? (
-                <p className="text-base text-center text-gray-700">No debit cards available</p>
+                <p className="text-base text-center text-gray-700">You don't have debit cards available</p>
               ) : (
               debitCards.map (card => (
                 <Cards key={card.id} color={card.color} type={card.cardType} cardHolder={card.cardHolder} number={card.number} date={card.truDate} CVV={card.cvv}/>
@@ -87,7 +87,7 @@ export const GetCards = () => {
             )}
               <h2 className="text-base text-center pb-2">Credit Cards</h2>
               { creditCards.length === 0 ? (
-                <p className="text-base text-center text-gray-700">No credit cards available</p>
+                <p className="text-base text-center text-gray-700">You don't have credit cards available</p>
               ) : (
                 creditCards.map(card => (
                   <Cards key={card.id} color={card.color} type={card.cardType} cardHolder={card.cardHolder} number={card.number} date={card.truDate} CVV={card.cvv}/>
