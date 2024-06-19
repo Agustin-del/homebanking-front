@@ -7,7 +7,12 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { Box, Skeleton } from '@mui/material'
 
-async () => {
+export const GetLoans = () => {
+  const [loans, setLoans] = useState([])
+  const token = useSelector(store => store.authReducer.token)
+  const [loading, setLoading] = useState(true)
+  
+  const getLoans = async () => {
     try {
       const response = await axios.get('https://homebanking-e3f1.onrender.com/api/auth/current', {
         headers: {
@@ -48,4 +53,4 @@ async () => {
       <Carrousel/>
     </>
   )
-
+}
