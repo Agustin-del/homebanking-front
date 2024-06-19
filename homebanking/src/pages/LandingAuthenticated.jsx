@@ -6,7 +6,7 @@ import { Button, Alert } from 'flowbite-react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
-import { Skeleton } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 
 export const LandingAuthenticated = () => {
   const [clientData, setClientData] = useState({firstName:'', lastName:'', accounts:[]})
@@ -76,7 +76,11 @@ export const LandingAuthenticated = () => {
   }
   return (
         <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-4">
-          {loading ? <Skeleton/> 
+          {loading ? 
+          <Box>
+            <Skeleton variant ="text"/> 
+            <Skeleton variant="rectangular"/> 
+          </Box>
           :
           <>
             <Welcome client={clientData.firstName + ' ' + clientData.lastName}/>
