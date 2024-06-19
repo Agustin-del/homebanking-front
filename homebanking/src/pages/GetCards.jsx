@@ -26,14 +26,12 @@ export const GetCards = () => {
           Authorization:`Bearer ${token}`
         }
       })
-      setTimeout(() => {
-        setLoading(false)
-      }, 5000)
       const debitCardsData = response.data.filter(card => card.cardType === 'DEBIT')
       const creditCardsData = response.data.filter(card => card.cardType === 'CREDIT');
       
       setDebitCards(debitCardsData);
       setCreditCards(creditCardsData);
+      setLoading(false)
     } catch (error) {
       console.error('Error getting cards: ', error);
     }
@@ -41,7 +39,12 @@ export const GetCards = () => {
 
   return (
     <>
-    {loading ? <Skeleton/> 
+    {loading ? 
+      <Box>
+        <Skeleton variant ="text"  width={210} height={40}/> 
+        <Skeleton variant="rectangular"  width={210} height={118} /> 
+        <Skeleton variant="text" width="60%" />
+      </Box> 
     : 
     <>
       <h1 className="text-2xl lg:text-4xl font-bold">Your Cards</h1>
