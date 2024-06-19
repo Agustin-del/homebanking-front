@@ -31,9 +31,10 @@ export const GetCards = () => {
       
       setDebitCards(debitCardsData);
       setCreditCards(creditCardsData);
-      setLoading(false)
     } catch (error) {
       console.error('Error getting cards: ', error);
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -85,7 +86,7 @@ export const GetCards = () => {
               ))
             )}
               <h2 className="text-base text-center pb-2">Credit Cards</h2>
-              { creditCards.lengt === 0 ? (
+              { creditCards.length === 0 ? (
                 <p className="text-base text-center text-gray-700">No credit cards available</p>
               ) : (
                 creditCards.map(card => (
