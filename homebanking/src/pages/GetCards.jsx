@@ -41,7 +41,8 @@ export const GetCards = () => {
 
   return (
     <>
-    {loading ? 
+    {loading ? <Skeleton/> 
+    : 
     <>
       <h1 className="text-2xl lg:text-4xl font-bold">Your Cards</h1>
       <div className ="flex flex-col items-center gap-4 w-full p-4">      
@@ -93,8 +94,7 @@ export const GetCards = () => {
       </Link>
       <Carrousel/>
       </div>
-    </> :
-      <Skeleton/>
+    </> 
     }
     </>
   );
