@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 
-//ordenar payments
+//ordenar pa
 export const PostLoan = () => {
   const [loanType, setLoanType] = useState('')
   const[account, setAccount] = useState('')
