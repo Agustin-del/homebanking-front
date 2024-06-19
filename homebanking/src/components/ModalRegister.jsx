@@ -3,7 +3,7 @@ import { Button, Label, Modal, TextInput, Alert } from 'flowbite-react';
 import { HiInformationCircle } from 'react-icons/hi';
 import axios from 'axios';
 
-export function ModalSignIn({ isOpen, onClose }) {
+export function ModalRegister({ isOpen, onClose }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
