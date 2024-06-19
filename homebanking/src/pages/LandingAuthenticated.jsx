@@ -83,7 +83,7 @@ export const LandingAuthenticated = () => {
             </div>
           </Box> 
           : <>
-            <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-4"></div>
+            <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-4">
               <Welcome client={clientData.firstName + ' ' + clientData.lastName}/>
               <div className="flex flex-wrap justify-evenly gap-4">
                 {accountData && accountData.map(account => {
@@ -94,6 +94,7 @@ export const LandingAuthenticated = () => {
                 {creating && <Alert color="info">Creating your account...</Alert>}
                 {error && <Alert color="failure">{error}</Alert>}
               {isDesktop ? <Button className="self-center" onClick={handleNewAccount}>Request new account</Button> : <Button className="self-center" onClick={handleNewAccount}><p className="text-xs">Request new account</p></Button>}
+              </div>
             </div> 
               <Carrousel/>
           </> 

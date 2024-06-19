@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 export const GetLoans = () => {
   const [loans, setLoans] = useState([])
   const token = useSelector(store => store.authReducer.token)
+  const [loading, setLoading] = useState(true)
   
   const getLoans = async () => {
     try {
@@ -18,6 +19,7 @@ export const GetLoans = () => {
         }
       })
       setLoans(response.data.loans)
+      setLoading(false)
     } catch(error) {
       console.error("Error getting loans: ", error)
     }
@@ -27,7 +29,14 @@ export const GetLoans = () => {
       getLoans()
   }, [])
   
-  return (
+  return ( loading ? <Box className="h-full w-full flex flex-col gap-8" >
+    <Skeleton variant ="text" className="h-[10vh] w-full"/> 
+    <Skeleton variant ="text" className="h-20[vh] w-full"/> 
+  <div className="flex flex-col gap 2">
+    <Skeleton variant="rectangular" className ="min-h-[40vh] w-full"/> 
+    <Skeleton variant="rectangular" className ="h-[30vh] w-full"/>
+  </div>
+  </Box> :
   <>
     <h1 className="text-2xl lg:text-4xl font-bold">Your loans</h1>
      <div className="flex flex-col items-center lg:flex-row gap-4 w-full justify-evenly">

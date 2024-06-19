@@ -27,8 +27,8 @@ export const Index = () => {
           <Button onClick={() => setRegisterOpen(true)}>Register</Button>
         </div> :
         <div className=" h-[10px] flex gap-6 items-center justify-center  p-10 w-full">
-          <Button className="w-[110px] h-[35px] flex items-center" onClick={() => setLogInOpen(true)}>Login</Button>
-          <Button className="w-[110px] h-[35px] flex items-center" onClick={() => setRegisterOpen(true)}>Register</Button>
+          <Button className="w-[130px] h-[35px] flex items-center" onClick={() => setLogInOpen(true)}>Login</Button>
+          <Button className="w-[130px] h-[35px] flex items-center" onClick={() => setRegisterOpen(true)}>Register</Button>
         </div>
         }
       </header>

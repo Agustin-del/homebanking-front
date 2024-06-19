@@ -4,29 +4,29 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import '../styles.css'
-export function Resume({accountId}) {
+export function Resume({transactions}) {
   
-  const [transactionData, setTransactionData] = useState([])
-  const token = useSelector(store => store.authReducer.token)
+  // const [transactionData, setTransactionData] = useState([])
+  // const token = useSelector(store => store.authReducer.token)
   const isDesktop = useMediaQuery({minWidth:1024})
 
-  useEffect(() => {
-    getTransactionData()
-  }, [])
+  // useEffect(() => {
+  //   getTransactionData()
+  // }, [])
   
-  const getTransactionData = async () => {
-    try {
-      const response = await axios.get(`https://homebanking-e3f1.onrender.com/api/clients/current/accounts/`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-       }
-      })
-      let account = response.data.find(account => account.id == accountId)
-      setTransactionData(account.transactions)
-    } catch (e) {
-      console.error(e)
-    }  
-  }
+  // const getTransactionData = async () => {
+  //   try {
+  //     const response = await axios.get(`https://homebanking-e3f1.onrender.com/api/clients/current/accounts/`, {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //      }
+  //     })
+  //     let account = response.data.find(account => account.id == accountId)
+  //     setTransactionData(account.transactions)
+  //   } catch (e) {
+  //     console.error(e)
+  //   }  
+  // }
   
   return (
     <div className="lg:w-1/2">
@@ -39,7 +39,7 @@ export function Resume({accountId}) {
             <Table.HeadCell className="bg-blue-200 text-center">Description</Table.HeadCell>       
         </Table.Head>
         <Table.Body className="divide-y">
-          {transactionData && transactionData.map(transaction => {
+          {transactions && transactions.map(transaction => {
             let color;
             if (transaction.transactionType === "DEBIT") {
               color = "bg-red-300"
@@ -72,7 +72,7 @@ export function Resume({accountId}) {
             <Table.HeadCell className="bg-blue-200 text-center">Description</Table.HeadCell>       
         </Table.Head>
         <Table.Body className="divide-y">
-          {transactionData && transactionData.map(transaction => {
+          {transactions && transactions.map(transaction => {
             let color;
             if (transaction.transactionType === "DEBIT") {
               color = "bg-red-300"
