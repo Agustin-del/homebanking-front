@@ -75,9 +75,9 @@ export const LandingAuthenticated = () => {
   return (
         <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-4">
           {loading ? 
-          <Box>
+          <Box height={full} width={full}>
             <Skeleton variant ="text"  width={210} height={40}/> 
-            <Skeleton variant="rectangular"  width={210} height={118} /> 
+            }<Skeleton variant="rectangular"  width={210} height={118} /> 
             <Skeleton variant="text" width="60%" />
           </Box>
           :
