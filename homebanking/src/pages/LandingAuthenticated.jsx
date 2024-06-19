@@ -74,7 +74,7 @@ export const LandingAuthenticated = () => {
   }
   return (
         loading ? 
-          <Box minHeight={"100%"} minWidth={"100%"} >
+          <Box className="h-full w-full flex flex-col gap-4" >
             <Skeleton variant ="text" className="h-[10vh] w-full"/> 
             <Skeleton variant ="text" className="h-20[vh] w-full"/> 
             <div className="flex flex-col gap 2">
@@ -82,8 +82,7 @@ export const LandingAuthenticated = () => {
               <Skeleton variant="rectangular" className ="h-[30vh] w-full"/>
             </div>
           </Box> 
-          :
-          <>
+          : <>
             <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-4"></div>
               <Welcome client={clientData.firstName + ' ' + clientData.lastName}/>
               <div className="flex flex-wrap justify-evenly gap-4">
@@ -94,9 +93,10 @@ export const LandingAuthenticated = () => {
               <div className="flex justify-center">
                 {creating && <Alert color="info">Creating your account...</Alert>}
                 {error && <Alert color="failure">{error}</Alert>}
-            </div>
               {isDesktop ? <Button className="self-center" onClick={handleNewAccount}>Request new account</Button> : <Button className="self-center" onClick={handleNewAccount}><p className="text-xs">Request new account</p></Button>}
-            <Carrousel/>
-          </>
+              <Carrousel/>
+            </div> 
+          </> 
+          
           ) 
         }

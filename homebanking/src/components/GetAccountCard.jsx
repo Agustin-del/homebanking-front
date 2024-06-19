@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export function GetAccountCard({number, balance, accountId}) {
 
   return (
-    <Card className="max-w-sm bg-blue-100 w-[360px] h-[160px]">
+    <Card className="max-w-sm bg-blue-100 w-[360px] h-[180px]">
       <h5 className="text-sm lg:text-xl font-bold text-gray-900 ">
       Account Number: {number}
       </h5>
