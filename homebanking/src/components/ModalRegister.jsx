@@ -67,7 +67,7 @@ export function ModalRegister({ isOpen, onClose }) {
         setAlert({type:"success", message:"Your account has been created, now login"})
         setTimeout(() => {
           onClose();
-        }, 1000);
+        }, 2000);
       }
     } catch(error) {
       if(error.response && error.response.data) {
