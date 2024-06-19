@@ -3,7 +3,7 @@ import { Button } from 'flowbite-react';
 import { CardsLanding } from '../components/CardsLanding';
 import Footer from '../components/Footer';
 import { ModalLogIn } from '../components/ModalLogIn';
-import { ModalSignIn } from '../components/ModalSignIn';
+import { ModalRegister } from '../components/ModalRegister';
 import { useMediaQuery } from 'react-responsive';
 
 
@@ -12,7 +12,7 @@ export const Index = () => {
     const services = ["Secure Online Banking", "Fast transfers", "Customized Loans"]
     const features = ["Security", "Convenience", "Customer support"]
     const [logInOpen, setLogInOpen] = useState(false)
-    const[signInOpen, setSignInOpen] = useState(false)
+    const[registerOpen, setRegisterOpen] = useState(false)
     const isDesktop = useMediaQuery({minWidth:1024})
 
     return (
@@ -24,11 +24,11 @@ export const Index = () => {
         </div>
           {isDesktop ? <div className="flex gap-4 justify-end p-10">
           <Button onClick={() => setLogInOpen(true)}>Login</Button>
-          <Button onClick={() => setSignInOpen(true)}>Sign in</Button>
+          <Button onClick={() => setRegisterOpen(true)}>Register</Button>
         </div> :
         <div className=" h-[10px] flex gap-6 items-center justify-center  p-10 w-full">
           <Button className="w-[85px] h-[35px] flex items-center" onClick={() => setLogInOpen(true)}>Login</Button>
-          <Button className="w-[85px] h-[35px] flex items-center" onClick={() => setSignInOpen(true)}>Sign in</Button>
+          <Button className="w-[85px] h-[35px] flex items-center" onClick={() => setRegisterOpen(true)}>Register</Button>
         </div>
         }
       </header>
@@ -46,7 +46,7 @@ export const Index = () => {
       </main>
       <Footer/>
       <ModalLogIn isOpen={logInOpen} onClose={() => setLogInOpen(false)}/>
-      <ModalSignIn isOpen={signInOpen} onClose ={() => setSignInOpen(false)}/>
+      <ModalRegister isOpen={registerOpen} onClose ={() => setRegisterOpen(false)}/>
     </div>
   );
 }

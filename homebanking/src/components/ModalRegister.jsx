@@ -47,7 +47,7 @@ export function ModalSignIn({ isOpen, onClose }) {
     validatePassword(password)
   }, [password, confirmPassword])
   
-  async function handleSignIn() {
+  async function handleRegister() {
     if(password !== confirmPassword) {
       setAlert({type: "error", message: "Passwords do not match"})
       setTimeout(() => {
@@ -177,7 +177,7 @@ export function ModalSignIn({ isOpen, onClose }) {
             )}
           </div>
           <div className="w-full flex justify-center">
-            <Button onClick={handleSignIn}>Create your account</Button>
+            <Button onClick={handleRegister}>Create your account</Button>
           </div>
         </div>
       </Modal.Body>

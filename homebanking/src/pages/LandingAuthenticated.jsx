@@ -30,7 +30,9 @@ export const LandingAuthenticated = () => {
         }
       })
       setClientData(response.data)
-      setLoading(false)
+      setTimeout(() => {
+        setLoading(false)
+      }, 500)
     } catch (e) {
       console.error(e)
     }
