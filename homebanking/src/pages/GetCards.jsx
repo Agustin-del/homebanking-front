@@ -94,7 +94,8 @@ export const GetCards = () => {
       <Carrousel/>
       </div>
     </> :
-    <Skeleton/>
+      <Skeleton/>
+    }
     </>
   );
 };
