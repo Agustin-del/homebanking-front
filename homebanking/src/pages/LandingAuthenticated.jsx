@@ -77,7 +77,7 @@ export const LandingAuthenticated = () => {
           {loading ? 
           <Box height={full} width={full}>
             <Skeleton variant ="text"  width={210} height={40}/> 
-            }<Skeleton variant="rectangular"  width={210} height={118} /> 
+            <Skeleton variant="rectangular"  width={210} height={118} /> 
             <Skeleton variant="text" width="60%" />
           </Box>
           :
