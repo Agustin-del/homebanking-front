@@ -18,7 +18,6 @@ export const GetAccount = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const response = await axios.get(`https://homebanking-e3f1.onrender.com/api/clients/current/accounts/`, {
           headers: {
             Authorization: `Bearer ${token}`
