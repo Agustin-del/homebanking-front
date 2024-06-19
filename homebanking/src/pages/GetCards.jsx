@@ -6,7 +6,7 @@ import { Carrousel } from '../components/Carrousel'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
-import { Skeleton } from '@mui/material'
+import { Skeleton, Box } from '@mui/material'
 
 export const GetCards = () => {
   const [debitCards, setDebitCards] = useState([]);
@@ -40,7 +40,7 @@ export const GetCards = () => {
   return (
     <>
     {loading ? 
-      <Box height={300} width={1000} >
+      <Box minHeight={300} width={1000} >
         <Skeleton variant ="text"  width={"80%"} height={40}/> 
         <Skeleton variant ="text"  width={"80%"} height={40}/> 
         <Skeleton variant="rectangular"  width={210} height={118} /> 
