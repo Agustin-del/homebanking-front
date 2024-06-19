@@ -29,9 +29,9 @@ export const LandingAuthenticated = () => {
           Authorization:`Bearer ${token}`
         }
       })
-      setClientData(response.data)
       setTimeout(() => {
         setLoading(false)
+        setClientData(response.data)
       }, 5000)
     } catch (e) {
       console.error(e)

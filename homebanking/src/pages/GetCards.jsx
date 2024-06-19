@@ -6,12 +6,14 @@ import { Carrousel } from '../components/Carrousel'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
+import { Skeleton } from '@mui/material'
 
 export const GetCards = () => {
   const [debitCards, setDebitCards] = useState([]);
   const [creditCards, setCreditCards] = useState([]);
   const token = useSelector (store => store.authReducer.token)
   const isDesktop = useMediaQuery({minWidth:1024})
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getCards();
@@ -24,7 +26,9 @@ export const GetCards = () => {
           Authorization:`Bearer ${token}`
         }
       })
-      
+      setTimeout(() => {
+        setLoading(false)
+      }, 5000)
       const debitCardsData = response.data.filter(card => card.cardType === 'DEBIT')
       const creditCardsData = response.data.filter(card => card.cardType === 'CREDIT');
       
@@ -36,6 +40,8 @@ export const GetCards = () => {
   };
 
   return (
+    <>
+    {loading ? 
     <>
       <h1 className="text-2xl lg:text-4xl font-bold">Your Cards</h1>
       <div className ="flex flex-col items-center gap-4 w-full p-4">      
@@ -87,6 +93,8 @@ export const GetCards = () => {
       </Link>
       <Carrousel/>
       </div>
+    </> :
+    <Skeleton/>
     </>
   );
 };
