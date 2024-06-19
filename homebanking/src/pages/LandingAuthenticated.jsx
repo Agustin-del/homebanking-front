@@ -74,7 +74,7 @@ export const LandingAuthenticated = () => {
   }
   return (
         loading ? 
-          <Box className="h-full w-full flex flex-col gap-4" >
+          <Box className="h-full w-full flex flex-col gap-8" >
             <Skeleton variant ="text" className="h-[10vh] w-full"/> 
             <Skeleton variant ="text" className="h-20[vh] w-full"/> 
             <div className="flex flex-col gap 2">
@@ -94,8 +94,8 @@ export const LandingAuthenticated = () => {
                 {creating && <Alert color="info">Creating your account...</Alert>}
                 {error && <Alert color="failure">{error}</Alert>}
               {isDesktop ? <Button className="self-center" onClick={handleNewAccount}>Request new account</Button> : <Button className="self-center" onClick={handleNewAccount}><p className="text-xs">Request new account</p></Button>}
-              <Carrousel/>
             </div> 
+              <Carrousel/>
           </> 
           
           ) 

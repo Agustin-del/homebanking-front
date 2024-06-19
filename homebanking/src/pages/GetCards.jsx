@@ -40,7 +40,7 @@ export const GetCards = () => {
   return (
     <>
     {loading ? 
-      <Box className="h-full w-full flex flex-col gap-4" >
+      <Box className="h-full w-full flex flex-col gap-8" >
         <Skeleton variant ="text" className="h-[10vh] w-full"/> 
         <Skeleton variant ="text" className="h-20[vh] w-full"/> 
         <div className="flex flex-col gap 2">
