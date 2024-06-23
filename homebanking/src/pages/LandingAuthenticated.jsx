@@ -93,10 +93,12 @@ export const LandingAuthenticated = () => {
                   return <GetAccountCard accountId ={account.id} key={account.id} number={account.number} balance={account.balance}/>
                 })}
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center flex-col">
                 {creating && <Alert color="info">Creating your account...</Alert>}
                 {error && <Alert color="failure">{error}</Alert>}
-              {isDesktop ? <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton} >Request new account</Button> : <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton}><p className="text-xs">Request new account</p></Button>}
+                <div>
+                  {isDesktop ? <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton} >Request new account</Button> : <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton}><p className="text-xs">Request new account</p></Button>}
+                </div>
               </div>
             </div> 
               <Carrousel/>
