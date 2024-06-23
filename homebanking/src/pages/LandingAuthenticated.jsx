@@ -93,7 +93,7 @@ export const LandingAuthenticated = () => {
                   return <GetAccountCard accountId ={account.id} key={account.id} number={account.number} balance={account.balance}/>
                 })}
               </div>
-              <div className="flex justify-center flex-col items-center w-full">
+              <div className="flex justify-center flex-col items-center w-full gap-2 outline">
                 {creating && <Alert className="w-[300px]" color="info">Creating your account...</Alert>}
                 {error && <Alert className="w-[300px]" color="failure">{error}</Alert>}
                 <div>
