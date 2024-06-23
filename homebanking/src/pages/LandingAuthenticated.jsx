@@ -7,7 +7,6 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
 import {Box, Skeleton } from '@mui/material'
-import { transformWithEsbuild } from 'vite'
 
 export const LandingAuthenticated = () => {
   const [clientData, setClientData] = useState({firstName:'', lastName:'', accounts:[]})
