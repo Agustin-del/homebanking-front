@@ -94,9 +94,9 @@ export const LandingAuthenticated = () => {
                 })}
               </div>
               <div className="flex justify-center flex-col items-center w-full gap-2">
-                {creating && <Alert className="w-[400px]" color="info">Creating your account...</Alert>}
-                {error && <Alert className="w-[400px]" color="failure">{error}</Alert>}
-                <div className="w-[98%]">
+                {creating && <Alert className="w-[380px]" color="info">Creating your account...</Alert>}
+                {error && <Alert className="w-[380px]" color="failure">{error}</Alert>}
+                <div className="w-[98%] outline">
                   {isDesktop ? <Button className="w-[180px] self-center" onClick={handleNewAccount} disabled={newAccountButton} >Request new account</Button> : <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton}><p className="text-xs">Request new account</p></Button>}
                 </div>
               </div>
