@@ -86,7 +86,7 @@ export const LandingAuthenticated = () => {
             </div>
           </Box> 
           : <>
-            <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-4">
+            <div className="flex flex-col justify-evenly flex-1 w-full p-4 gap-6">
               <Welcome client={clientData.firstName + ' ' + clientData.lastName}/>
               <div className="flex flex-wrap justify-evenly gap-4">
                 {accountData && accountData.map(account => {
