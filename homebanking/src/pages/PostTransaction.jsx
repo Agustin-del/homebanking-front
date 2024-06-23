@@ -19,6 +19,7 @@ export const PostTransaction = () => {
   const [alert, setAlert] = useState('')
   const[modalAlert, setModalAlert] = useState('')
   const [showModal, setShowModal] = useState(false)
+  const [confirmButton, setConfirmButton] = useState(false)
   const isDesktop = useMediaQuery({minWidth:1024})
   
   const handleRadioChange = (event) => {
@@ -37,6 +38,7 @@ export const PostTransaction = () => {
     }
   }
   const handleConfirm = async () => {
+    setConfirmButton(true)
     const transaction = {
       amount:amount,
       description:description,
@@ -58,12 +60,14 @@ export const PostTransaction = () => {
         setAmount('')
         setAccounts([])
         setDescription('')
+        setConfirmButton(false)
       }, 1000)
     } catch (e) {
       setModalAlert({type:'failure', message:e.response.data})
       setTimeout(() => {
         setModalAlert(null)
         setShowModal(false)
+        setConfirmButton(false)
       }, 1000)  
     }
   }
@@ -203,7 +207,7 @@ export const PostTransaction = () => {
               )}
             </div>
             <div className="flex gap-4 justify-end">
-              <Button className="w-[100px]" onClick={handleConfirm}>Confirm</Button>
+              <Button className="w-[100px]" onClick={handleConfirm} disabled={confirmButton}>Confirm</Button>
               <Button className="w-[100px]" onClick={() => setShowModal(false)}>Cancel</Button>
             </div>
           </div>
