@@ -7,6 +7,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
 import {Box, Skeleton } from '@mui/material'
+import { transformWithEsbuild } from 'vite'
 
 export const LandingAuthenticated = () => {
   const [clientData, setClientData] = useState({firstName:'', lastName:'', accounts:[]})
@@ -16,6 +17,7 @@ export const LandingAuthenticated = () => {
   const token = useSelector(store => store.authReducer.token)
   const isDesktop = useMediaQuery({minWidth:1024})
   const [loading, setLoading] = useState(true)
+  const [newAccountButton, setNewAccountButton] = useState(false)
 
   useEffect(() => {
       getClientData()
@@ -46,6 +48,7 @@ export const LandingAuthenticated = () => {
   }
 
   const handleNewAccount  = async () => {
+    setNewAccountButton(true)
     if (accountData.length < 3) {
       setCreating(true)
     }
@@ -69,6 +72,7 @@ export const LandingAuthenticated = () => {
     } finally {
       setTimeout(() => {
         setCreating(false)
+        setNewAccountButton(false)
       }, 500);
     }
   }
@@ -93,7 +97,7 @@ export const LandingAuthenticated = () => {
               <div className="flex justify-center">
                 {creating && <Alert color="info">Creating your account...</Alert>}
                 {error && <Alert color="failure">{error}</Alert>}
-              {isDesktop ? <Button className="self-center" onClick={handleNewAccount}>Request new account</Button> : <Button className="self-center" onClick={handleNewAccount}><p className="text-xs">Request new account</p></Button>}
+              {isDesktop ? <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton} >Request new account</Button> : <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton}><p className="text-xs">Request new account</p></Button>}
               </div>
             </div> 
               <Carrousel/>
