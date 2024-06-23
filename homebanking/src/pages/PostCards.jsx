@@ -12,12 +12,14 @@ export const PostCards = () => {
   const [membership, setMemberShip] = useState("")
   const [alert, setAlert] = useState(null)
   const [showModal, setShowModal] = useState(false)
+  const [confirmButton, setConfirmButton] = useState(false)
   const token = useSelector(store => store.authReducer.token)
   const navigate = useNavigate()
   const isDesktop = useMediaQuery({minWidth:1024})
 
   async function handleConfirm () {
     
+    setConfirmButton(true)
     const cardBody = {
       color: membership === '' ? null : membership,
       cardType:cardType === '' ? null : cardType
@@ -35,6 +37,7 @@ export const PostCards = () => {
           setAlert(null)
           setShowModal(false)
           navigate('/cards')
+          setConfirmButton(false)
         }, 1000)
         
       } catch (e) {
@@ -42,6 +45,7 @@ export const PostCards = () => {
           setTimeout (() => {
             setShowModal(false)
             setAlert(null)
+            setConfirmButton(false)
           }, 1500)
       }
     } else if( membership === '' && cardType === '') {
@@ -49,18 +53,21 @@ export const PostCards = () => {
       setTimeout(() => {
         setShowModal(false)
         setAlert(null)
+        setConfirmButton(false)
       }, 1500)
     } else if(membership === '') {
       setAlert({type:'failure', message:"Please, select your card membership"})
       setTimeout(() => {
         setShowModal(false)
         setAlert(null)
+        setConfirmButton(false)
       }, 1500)
     } else if (cardType === '') {
       setAlert({type:'failure', message:"Please, select your card type"})
       setTimeout(() => {
         setAlert(null)
         setShowModal(false)
+        setConfirmButton(false)
       }, 1500)
     }
   }
@@ -131,7 +138,7 @@ export const PostCards = () => {
             </div>
             
             <div className="flex gap-4 justify-end">
-              <Button className="w-[100px]" onClick={handleConfirm}>Confirm</Button>
+              <Button className="w-[100px]" onClick={handleConfirm} disabled={confirmButton}>Confirm</Button>
               <Button className="w-[100px]" onClick={() => setShowModal(false)}>Cancel</Button>
             </div>
           </div>
