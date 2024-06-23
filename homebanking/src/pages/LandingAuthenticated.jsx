@@ -93,11 +93,11 @@ export const LandingAuthenticated = () => {
                   return <GetAccountCard accountId ={account.id} key={account.id} number={account.number} balance={account.balance}/>
                 })}
               </div>
-              <div className="flex justify-center flex-col">
-                {creating && <Alert color="info">Creating your account...</Alert>}
-                {error && <Alert color="failure">{error}</Alert>}
+              <div className="flex justify-center flex-col items-center w-[80%]">
+                {creating && <Alert className="w-[300px]" color="info">Creating your account...</Alert>}
+                {error && <Alert className="w-[300px]" color="failure">{error}</Alert>}
                 <div>
-                  {isDesktop ? <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton} >Request new account</Button> : <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton}><p className="text-xs">Request new account</p></Button>}
+                  {isDesktop ? <Button className="w-[200px] self-center" onClick={handleNewAccount} disabled={newAccountButton} >Request new account</Button> : <Button className="self-center" onClick={handleNewAccount} disabled={newAccountButton}><p className="text-xs">Request new account</p></Button>}
                 </div>
               </div>
             </div> 
