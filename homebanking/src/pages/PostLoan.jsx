@@ -22,6 +22,7 @@ export const PostLoan = () => {
   const[modalAlert, setModalAlert] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [alert, setAlert] = useState('')
+  const [confirmButton, setConfirmButton] = useState(false)  
   const token = useSelector(store => store.authReducer.token)
   const navigate = useNavigate()
   const isDesktop = useMediaQuery({minWidth:1024})
@@ -121,6 +122,7 @@ export const PostLoan = () => {
   }
 
   async function handleConfirm () {
+    setConfirmButton(true)
     if (loanType =='') {
       setModalAlert({message:"Please select a loan type", type:'failure'})
       setTimeout(() => {
@@ -154,6 +156,7 @@ export const PostLoan = () => {
       setTimeout(() => {
         setModalAlert('')
         setShowModal(false)
+        setConfirmButton(false)
         navigate('/loans')
       }, 1000)
     } catch (e) {
@@ -161,6 +164,7 @@ export const PostLoan = () => {
       setTimeout(() => {
         setModalAlert('')
         setShowModal(false)
+        setConfirmButton(false)
       }, 1500);
     }
   }
@@ -246,7 +250,7 @@ export const PostLoan = () => {
                   )}
                 </div>
                 <div className="flex gap-4 justify-end">
-                  <Button className="w-[100px]" onClick={handleConfirm}>Confirm</Button>
+                  <Button className="w-[100px]" onClick={handleConfirm} disabled={confirmButton}>Confirm</Button>
                   <Button className="w-[100px]" onClick={() => setShowModal(false)}>Cancel</Button>
               </div>
                 </div>
