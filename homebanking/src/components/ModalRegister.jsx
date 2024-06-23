@@ -11,6 +11,7 @@ export function ModalRegister({ isOpen, onClose }) {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [alert, setAlert] = useState(null)
   const [passwordAlert, setPasswordAlert] = useState('')
+  const [registerButton, setRegisterButton] = useState(false)
   const firstNameRef = useRef(null)
 
   useEffect (() => {
@@ -48,10 +49,12 @@ export function ModalRegister({ isOpen, onClose }) {
   }, [password, confirmPassword])
   
   async function handleRegister() {
+    setRegisterButton(true)
     if(password !== confirmPassword) {
       setAlert({type: "error", message: "Passwords do not match"})
       setTimeout(() => {
         setAlert(null)
+        setRegisterButton(false)
       }, 2000);
       return
     }
@@ -66,6 +69,7 @@ export function ModalRegister({ isOpen, onClose }) {
       if (response.status === 201) {
         setAlert({type:"success", message:"Your account has been created, now login"})
         setTimeout(() => {
+          setRegisterButton(false)
           onClose();
         }, 2000);
       }
@@ -74,14 +78,15 @@ export function ModalRegister({ isOpen, onClose }) {
         setAlert({type:'error', message:error.response.data})
         setTimeout(() => {
           setAlert(null)
+          setRegisterButton(false)
         }, 1000)
       } else {
         setAlert({type:'error', message: 'An unexpected error has ocurred'})
         setTimeout(() => {
           setAlert(null)
+          setRegisterButton(false)
         }, 1000)
       }
-      console.error(error)
     }
   }
   useEffect(() => {
@@ -177,7 +182,7 @@ export function ModalRegister({ isOpen, onClose }) {
             )}
           </div>
           <div className="w-full flex justify-center">
-            <Button onClick={handleRegister}>Create your account</Button>
+            <Button onClick={handleRegister} disabled={registerButton}>Create your account</Button>
           </div>
         </div>
       </Modal.Body>

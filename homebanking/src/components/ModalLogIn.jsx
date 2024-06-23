@@ -12,6 +12,7 @@ export function ModalLogIn({ isOpen, onClose }) {
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const[alert, setAlert] = useState(null)
+  const [loginButton, setLoginButton] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -26,6 +27,7 @@ export function ModalLogIn({ isOpen, onClose }) {
   }, [isOpen])
 
   async function handleLogIn() {
+    setLoginButton(true)
     try {
       const requestBody = {
         email:emailRef.current.value,
@@ -38,6 +40,7 @@ export function ModalLogIn({ isOpen, onClose }) {
         const token = response.data
         setAlert({type: 'success', message:'Login successful'})
         setTimeout(() => {
+          setLoginButton(false)
           dispatch(login(token))
           navigate('/accounts')
         }, 2000);
@@ -49,27 +52,32 @@ export function ModalLogIn({ isOpen, onClose }) {
           setAlert({type:'failure', message:'Invalid email or password'})
           setTimeout(() => {
             setAlert(null)
+            setLoginButton(false)
           }, 1500);
         } else if (error.response.status === 404){
           setAlert({type:'failure', message:'User not found'})
           setTimeout(() => {
             setAlert(null)
+            setLoginButton(false)
           }, 1500)
         } else {
           setAlert({type:'failure', message:'An error ocurred: ' + error.response.data})
           setTimeout(()=> {
             setAlert(null)
+            setLoginButton(false)
           }, 1500)
         }
       } else if(error.request) {
         setAlert({type:'failure', message:'No response received from the server'})
         setTimeout(() => {
           setAlert(null)
+          setLoginButton(false)
         }, 1500)
       } else {
         setAlert({type:'failure', message:'An error ocurred: ' + error.message})
         setTimeout(()=> {
           setAlert(null)
+          setLoginButton(false)
         }, 1500)
       }
     }
@@ -117,7 +125,7 @@ export function ModalLogIn({ isOpen, onClose }) {
             )}
           </div>
           <div className="w-full flex justify-center">
-            <Button onClick={handleLogIn}>Log in to your account</Button>
+            <Button onClick={handleLogIn} disabled={loginButton}>Log in to your account</Button>
           </div>
         </div>
       </Modal.Body>
