@@ -139,11 +139,6 @@ export const PostTransaction = () => {
     
   // }, [description, amount, originAccount, destinationAccount ])
 
-  useEffect (() => {
-    if (selectedDestination === "self" && originAccount) {
-    }
-  }, [originAccount, destinationAccount])
-
   return (
     <>
       <h1 className="text-2xl lg:text-4xl font-bold">Make a transaction</h1>
