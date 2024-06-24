@@ -3,6 +3,8 @@ import { Button, Label, Modal, TextInput, Alert } from 'flowbite-react';
 import { HiInformationCircle } from 'react-icons/hi';
 import axios from 'axios';
 
+//cómo hago para que no tenga scroll, no tiene ni gap las cosas
+
 export function ModalRegister({ isOpen, onClose }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -111,7 +113,7 @@ export function ModalRegister({ isOpen, onClose }) {
             <img src="/ico.png" className="h-[55px]"  />
           </div>
           <div>
-            <div className="mb-2 block">
+            <div className="block">
               <Label htmlFor="firstName" value="First name" />
             </div>
             <TextInput
@@ -123,7 +125,7 @@ export function ModalRegister({ isOpen, onClose }) {
             />
           </div>
           <div>
-            <div className="mb-2 block">
+            <div className="block">
               <Label htmlFor="lastName" value="Last name" />
             </div>
             <TextInput
