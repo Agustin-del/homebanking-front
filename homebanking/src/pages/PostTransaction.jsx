@@ -20,7 +20,40 @@ export const PostTransaction = () => {
   const[modalAlert, setModalAlert] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [confirmButton, setConfirmButton] = useState(false)
+  const [isValidForModal, setIsValidForModal] = useState(false)
   const isDesktop = useMediaQuery({minWidth:1024})
+  
+  const validateInput = () => {
+      if (originAccount === "") {
+        setAlert("You must enter the origin account")
+        setTimeout(() => {
+          setAlert("")
+          return false
+        }, 1500)
+      }
+      if (destinationAccount === "") {
+        setAlert("You must enter the destination account")
+        setTimeout(() => {
+          setAlert("")
+          return false
+        }, 1500)
+      }
+      if(amount === "") {
+        setAlert("You must enter an amount")
+        setTimeout(() => {
+          setAlert("")
+          return false
+        }, 1500)
+      }
+      if(description === "") {
+        setAlert("You must enter a description")
+        setTimeout(() => {
+          setAlert("")
+          return false
+        }, 1500)
+      }
+      return true
+  }
   
   const handleRadioChange = (event) => {
     setSelectedDestination(event.target.value)
@@ -28,7 +61,9 @@ export const PostTransaction = () => {
   
   const handleApply = (event) => {
     event.preventDefault()
-    setShowModal(true)
+    if(isValidForModal) {
+      setShowModal(true)
+    }
   }
 
   const handleAmountChange= (event) => {
@@ -101,6 +136,10 @@ export const PostTransaction = () => {
     }
   }, [amount, originAccount, accounts])
   
+  useEffect(() => {
+    setIsValidForModal(validateInput())
+  }, [description, amount, originAccount, destinationAccount ])
+
   return (
     <>
       <h1 className="text-2xl lg:text-4xl font-bold">Make a transaction</h1>
