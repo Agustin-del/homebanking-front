@@ -25,28 +25,28 @@ export const PostTransaction = () => {
   
   const validateInput = () => {
       if (originAccount === "") {
-        setAlert("You must enter the origin account")
+        setAlert({type:'failure', message:"You must enter the origin account"})
         setTimeout(() => {
           setAlert("")
           return false
         }, 1500)
       }
       if (destinationAccount === "") {
-        setAlert("You must enter the destination account")
+        setAlert({type:'failure', message:"You must enter the destination account"})
         setTimeout(() => {
           setAlert("")
           return false
         }, 1500)
       }
       if(amount === "") {
-        setAlert("You must enter an amount")
+        setAlert({type:'failure',message:"You must enter an amount"})
         setTimeout(() => {
           setAlert("")
           return false
         }, 1500)
       }
       if(description === "") {
-        setAlert("You must enter a description")
+        setAlert({type:'failure',message:"You must enter a description"})
         setTimeout(() => {
           setAlert("")
           return false
@@ -60,6 +60,7 @@ export const PostTransaction = () => {
   }
   
   const handleApply = (event) => {
+    setIsValidForModal(validateInput())
     event.preventDefault()
     if(isValidForModal) {
       setShowModal(true)
@@ -136,13 +137,12 @@ export const PostTransaction = () => {
     }
   }, [amount, originAccount, accounts])
   
-  useEffect(() => {
-    setIsValidForModal(validateInput())
-  }, [description, amount, originAccount, destinationAccount ])
+  // useEffect(() => {
+    
+  // }, [description, amount, originAccount, destinationAccount ])
 
   useEffect (() => {
     if (selectedDestination === "self" && originAccount) {
-
     }
   }, [originAccount, destinationAccount])
 
