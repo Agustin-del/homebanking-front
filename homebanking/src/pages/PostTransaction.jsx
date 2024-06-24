@@ -140,6 +140,12 @@ export const PostTransaction = () => {
     setIsValidForModal(validateInput())
   }, [description, amount, originAccount, destinationAccount ])
 
+  useEffect (() => {
+    if (selectedDestination === "self" && originAccount) {
+
+    }
+  }, [originAccount, destinationAccount])
+
   return (
     <>
       <h1 className="text-2xl lg:text-4xl font-bold">Make a transaction</h1>
@@ -184,7 +190,9 @@ export const PostTransaction = () => {
               <Select  onChange={e => setDestinationAccount(e.target.value)} id="destinationAccount" className="w-[250px] lg:w-[350px]"  value={destinationAccount} required>
               <option> --Select-- </option>
               {
-                accounts && accounts.map(account => {
+                accounts && accounts
+                .filter(account => account.number !== originAccount)
+                .map(account => {
                   return <option key={account.id} value={account.number}> {account.number} </option>
               }) 
               }
