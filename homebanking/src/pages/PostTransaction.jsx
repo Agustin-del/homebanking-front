@@ -6,6 +6,7 @@ import { HiInformationCircle } from 'react-icons/hi';
 import axios from 'axios';
 import { useMediaQuery } from 'react-responsive';
 
+//agregar el monto de la cuenta, al lado del select
 
 export const PostTransaction = () => {
   
@@ -135,10 +136,6 @@ export const PostTransaction = () => {
     }
   }, [amount, originAccount, accounts])
   
-  // useEffect(() => {
-    
-  // }, [description, amount, originAccount, destinationAccount ])
-
   return (
     <>
       <h1 className="text-2xl lg:text-4xl font-bold">Make a transaction</h1>
