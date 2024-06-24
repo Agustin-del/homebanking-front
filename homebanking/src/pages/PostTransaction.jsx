@@ -30,29 +30,27 @@ export const PostTransaction = () => {
           setAlert("")
           return false
         }, 1500)
-      }
-      if (destinationAccount === "") {
+      } else if (destinationAccount === "") {
         setAlert({type:'failure', message:"You must enter the destination account"})
         setTimeout(() => {
           setAlert("")
           return false
         }, 1500)
-      }
-      if(amount === "") {
+      } else if(amount === "") {
         setAlert({type:'failure',message:"You must enter an amount"})
         setTimeout(() => {
           setAlert("")
           return false
         }, 1500)
-      }
-      if(description === "") {
+      } else if(description === "") {
         setAlert({type:'failure',message:"You must enter a description"})
         setTimeout(() => {
           setAlert("")
           return false
         }, 1500)
+      } else {
+        return true
       }
-      return true
   }
   
   const handleRadioChange = (event) => {
