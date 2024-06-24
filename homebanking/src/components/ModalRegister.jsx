@@ -107,7 +107,7 @@ export function ModalRegister({ isOpen, onClose }) {
     <Modal show={isOpen} size="md" onClose={onClose} popup>
       <Modal.Header/>
       <Modal.Body>
-        <div className="space-y-6 flex flex-col gap-2">
+        <div className=" flex flex-col gap-2 outline">
           <div className="flex items-center w-[85%] justify-between">
             <h3 className="text-xl font-medium text-gray-900">Create your account</h3>
             <img src="/ico.png" className="h-[55px]"  />
